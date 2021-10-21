@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "915453181596",
+    "project_id": "dash-weather",
+    "storage_bucket": "dash-weather.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:915453181596:android:31a1a03e1f6eb909dbf759",
+        "android_client_info": {
+          "package_name": "com.example.dash_weather"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "915453181596-c78r3uj4bb4uvug5ajbidu147kra8ga5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dash_weather",
+            "certificate_hash": "d2a5c38982a9a70c2bd035471f9bc7d42221c2c5"
+          }
+        },
+        {
+          "client_id": "915453181596-00jl1bkcb0sostpbdm6prc4ig73bl9d9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKa-ereFvfCHo5ggBsD2oO2dTG0jD-NAk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "915453181596-00jl1bkcb0sostpbdm6prc4ig73bl9d9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
