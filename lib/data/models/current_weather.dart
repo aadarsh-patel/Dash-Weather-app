@@ -1,11 +1,11 @@
 class CurrentWeather {
   final String location;
   final int localTimeEpoch;
-  final int temperature;
+  final num temperature;
   final String weatherIcon;
   final String weatherDescription;
-  final int humidity;
-  final int feelsLike;
+  final num humidity;
+  final num feelsLike;
 
   CurrentWeather({
     required this.location,
@@ -19,13 +19,13 @@ class CurrentWeather {
 
   factory CurrentWeather.fromJson(Map<String, dynamic> json) {
     return CurrentWeather(
-      location: json['location']['name'] as String,
-      localTimeEpoch: json['location']['localtime_epoch'] as int,
-      temperature: json['current']['temperature'] as int,
-      weatherIcon: json['current']['weather_icons'][0] as String,
-      weatherDescription: json['current']['weather_descriptions'][0] as String,
-      humidity: json['current']['humidity'] as int,
-      feelsLike: json['current']['feelslike'] as int,
+      location: json['name'] as String,
+      localTimeEpoch: json['dt'] as int,
+      temperature: json['main']['temp'] as num,
+      weatherIcon: json['weather'][0]['icon'] as String,
+      weatherDescription: json['weather'][0]['main'] as String,
+      humidity: json['main']['humidity'] as num,
+      feelsLike: json['main']['feels_like'] as num,
     );
   }
 

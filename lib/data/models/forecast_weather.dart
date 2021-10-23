@@ -1,12 +1,12 @@
 class ForecastWeather {
   final int dateEpoch;
-  final int minTemp;
-  final int maxTemp;
-  final int avgTemp;
+  final num minTemp;
+  final num maxTemp;
+  final num avgTemp;
   final String weatherIcon;
   final String weatherDescription;
-  final int humidity;
-  final int feelsLike;
+  final num humidity;
+  final num feelsLike;
 
   ForecastWeather({
     required this.dateEpoch,
@@ -21,15 +21,14 @@ class ForecastWeather {
 
   factory ForecastWeather.fromJson(Map<String, dynamic> json) {
     return ForecastWeather(
-      dateEpoch: json['date_epoch'] as int,
-      minTemp: json['mintemp'] as int,
-      maxTemp: json['maxtemp'] as int,
-      avgTemp: json['avgtemp'] as int,
-      weatherIcon: json['hourly'][0]['weather_icons'][0] as String,
-      weatherDescription:
-          json['hourly'][0]['weather_descriptions'][0] as String,
-      humidity: json['hourly'][0]['humidity'][0] as int,
-      feelsLike: json['hourly'][0]['feelslike'][0] as int,
+      dateEpoch: json['dt'] as int,
+      minTemp: json['temp']['min'] as num,
+      maxTemp: json['temp']['max'] as num,
+      avgTemp: json['temp']['day'] as num,
+      weatherIcon: json['weather'][0]['icon'] as String,
+      weatherDescription: json['weather'][0]['main'] as String,
+      humidity: json['humidity'] as num,
+      feelsLike: json['feels_like']['day'] as num,
     );
   }
 

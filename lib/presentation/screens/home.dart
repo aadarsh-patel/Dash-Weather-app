@@ -3,6 +3,8 @@ import 'package:dash_weather/utils/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:flutter/services.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -45,10 +47,11 @@ class _HomePageState extends State<HomePage> {
                   return Container();
                 }
 
-                return Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [],
-                );
+                if (state is WeatherDataFetched) {
+                  return Container();
+                }
+
+                return Container();
               },
             ),
           ),

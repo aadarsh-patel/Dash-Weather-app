@@ -35,36 +35,45 @@ class WeatherDataCubit extends Cubit<WeatherDataState> {
   }) async {
     emit(WeatherDataLoading());
 
-    const String baseUrl = 'http://api.weatherstack.com';
-    const String key = '427e5d7b149000dc207d977ebfda9f8b';
+    const String baseUrl = 'https://api.openweathermap.org/data/2.5';
+    const String key = 'e8a71f4595684efb76c7f34bda6593ba';
 
-    // final currentWeatherUrl =
-    //     "$baseUrl/current?access_key=$key&query=$latitude,$longitude";
-    final forecastWeatherUrl =
-        "$baseUrl/forecast?access_key=$key&query=$latitude,$longitude&forecast_days=4&hourly=1&interval=24";
+    var currentWeather;
+    var forecastWeathers = <ForecastWeather>[];
 
-    http.Response forecastResponse =
-        await http.get(Uri.parse(forecastWeatherUrl));
-    var jsonResponse = jsonDecode(forecastResponse.body);
-    if (forecastResponse.statusCode == 200) {
-      print(jsonResponse);
-      var currentWeather = CurrentWeather.fromJson(jsonResponse);
-      List<ForecastWeather> forecastWeathers = [];
+    final currentUrl =
+        "$baseUrl/weather?lat=$latitude&lon=$longitude&units=metric&appid=$key";
+    final forecastUrl =
+        "$baseUrl/onecall?lat=$latitude&lon=$longitude&exclude=minutely,hourly,alerts&units=metric&appid=$key";
 
-      jsonResponse['forecast'].forEach((key, value) {
-        forecastWeathers.add(ForecastWeather.fromJson(value));
-      });
-
-      emit(
-        WeatherDataFetched(
-          currentWeather: currentWeather,
-          forecastWeathers: forecastWeathers,
-        ),
+    http.Response currentResponse = await http.get(Uri.parse(currentUrl));
+    var currentJson = jsonDecode(currentResponse.body);
+    if (currentResponse.statusCode == 200) {
+      currentWeather = CurrentWeather.fromJson(currentJson);
+    } else {
+      print(
+        "Can't fetch weather data! Response code: ${currentResponse.statusCode.toString()}",
       );
+    }
+
+    http.Response forecastResponse = await http.get(Uri.parse(forecastUrl));
+    var forecastJson = jsonDecode(forecastResponse.body);
+    if (forecastResponse.statusCode == 200) {
+      List<dynamic> temp = forecastJson['daily'];
+      temp.forEach((element) {
+        forecastWeathers.add(ForecastWeather.fromJson(element));
+      });
     } else {
       print(
         "Can't fetch weather data! Response code: ${forecastResponse.statusCode.toString()}",
       );
     }
+
+    emit(
+      WeatherDataFetched(
+        currentWeather: currentWeather,
+        forecastWeathers: forecastWeathers,
+      ),
+    );
   }
 }
