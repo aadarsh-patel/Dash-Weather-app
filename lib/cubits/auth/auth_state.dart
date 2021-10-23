@@ -17,6 +17,6 @@ class AuthError extends AuthState {
 }
 
 class AuthCompleted extends AuthState {
-  final UserCredential userCredential;
-  const AuthCompleted(this.userCredential);
+  final User user;
+  const AuthCompleted(this.user);
 }

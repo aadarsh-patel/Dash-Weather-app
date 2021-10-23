@@ -16,7 +16,7 @@ class WeatherDataCubit extends Cubit<WeatherDataState> {
   Future<void> getLocation() async {
     try {
       Position pos = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.low,
+        desiredAccuracy: LocationAccuracy.medium,
       );
       emit(
         WeatherDataLocation(

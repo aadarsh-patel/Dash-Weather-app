@@ -1,3 +1,4 @@
+import 'package:dash_weather/presentation/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:dash_weather/utils/constants.dart';
@@ -11,6 +12,10 @@ class AppRouter {
   static Route onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case '/':
+        return MaterialPageRoute(
+          builder: (_) => SplashScreen(),
+        );
+      case REGISTRATION_ROUTE:
         return MaterialPageRoute(
           builder: (_) => Registration(),
         );

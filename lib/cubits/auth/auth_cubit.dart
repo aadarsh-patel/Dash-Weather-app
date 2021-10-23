@@ -9,13 +9,21 @@ class AuthCubit extends Cubit<AuthState> {
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
+  Future<bool> checkAuthentication() async {
+    if (_auth.currentUser != null) {
+      emit(AuthCompleted(_auth.currentUser!));
+      return true;
+    }
+    return false;
+  }
+
   Future<void> signUpUser(String email, String password) async {
     try {
       var userCredential = await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
-      emit(AuthCompleted(userCredential));
+      emit(AuthCompleted(userCredential.user!));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         emit(AuthError('The password provided is too weak.'));
@@ -33,7 +41,7 @@ class AuthCubit extends Cubit<AuthState> {
         email: email,
         password: password,
       );
-      emit(AuthCompleted(userCredential));
+      emit(AuthCompleted(userCredential.user!));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         emit(AuthError('No user found for that email.'));
