@@ -11,10 +11,10 @@
 
 <table>
   <tr>
-    <td><img src="media/1.jpg" width=110></td>
-    <td><img src="media/2.jpg" width=110></td>
-    <td><img src="media/3.jpg" width=110></td>
-    <td><img src="media/4.jpg" width=110></td>
+    <td><img src="media/1.jpg" width=140></td>
+    <td><img src="media/2.jpg" width=140></td>
+    <td><img src="media/3.jpg" width=140></td>
+    <td><img src="media/4.jpg" width=140></td>
   </tr>
  </table>
 
