@@ -108,17 +108,6 @@ class PrimaryCard extends StatelessWidget {
           ),
           Row(
             children: [
-              Container(
-                height: 70,
-                width: 70,
-                child: Transform.scale(
-                  scale: 1.8,
-                  child: Image.network(
-                    _getIconLink(currentWeather.weatherIcon),
-                  ),
-                ),
-              ),
-              Spacer(flex: 1),
               AutoSizeText(
                 currentWeather.temperature.round().toString(),
                 style: TextStyle(
@@ -133,6 +122,17 @@ class PrimaryCard extends StatelessWidget {
                   style: TextStyle(
                     color: const Color(0xFFF7C412),
                     fontSize: 30,
+                  ),
+                ),
+              ),
+              Spacer(flex: 1),
+              Container(
+                height: 70,
+                width: 70,
+                child: Transform.scale(
+                  scale: 1.8,
+                  child: Image.network(
+                    _getIconLink(currentWeather.weatherIcon),
                   ),
                 ),
               ),

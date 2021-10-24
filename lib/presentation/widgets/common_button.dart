@@ -38,11 +38,11 @@ class CommonButton extends StatelessWidget {
               ),
               primary: backgroundColor,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(4.0),
-                side: BorderSide(
-                  color: textColor!,
-                  width: 2.0,
-                ),
+                borderRadius: BorderRadius.circular(8.0),
+                // side: BorderSide(
+                //   color: textColor!,
+                //   width: 2.0,
+                // ),
               ),
               elevation: 12.0,
             ),

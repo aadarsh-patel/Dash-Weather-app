@@ -43,7 +43,9 @@ class AuthCubit extends Cubit<AuthState> {
       );
       emit(AuthCompleted(userCredential.user!));
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
+      if (e.code == 'invalid-email') {
+        emit(AuthError('Entered email is invalid.'));
+      } else if (e.code == 'user-not-found') {
         emit(AuthError('No user found for that email.'));
       } else if (e.code == 'wrong-password') {
         emit(AuthError('Wrong password provided for that user.'));
