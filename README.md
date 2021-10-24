@@ -1,16 +1,20 @@
-# dash_weather
+## Dash Weather app
 
-A new Flutter project.
+### Key-features
 
-## Getting Started
+* Firebase authentication service for signup/login using email.
+* Bloc architecture for state management.
+* Geolocator plugin for getting device's location.
+* OpenWeatherMap API for fetching data.
 
-This project is a starting point for a Flutter application.
+### Screenshots
 
-A few resources to get you started if this is your first Flutter project:
+<table>
+  <tr>
+    <td><img src="media/1.jpg" width=110></td>
+    <td><img src="media/2.jpg" width=110></td>
+    <td><img src="media/3.jpg" width=110></td>
+    <td><img src="media/4.jpg" width=110></td>
+  </tr>
+ </table>
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

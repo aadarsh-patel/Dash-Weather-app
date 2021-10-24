@@ -47,7 +47,8 @@ class _SelectLocationState extends State<SelectLocation> {
                   );
                 } else if (state is WeatherDataLocation) {
                   print("${state.latitude}, ${state.longitude}");
-                  Navigator.of(context).pushNamed(HOME_PAGE_ROUTE);
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      HOME_PAGE_ROUTE, (route) => false);
                 }
               },
               builder: (context, state) {
