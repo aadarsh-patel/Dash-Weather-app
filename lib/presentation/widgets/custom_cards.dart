@@ -108,20 +108,30 @@ class PrimaryCard extends StatelessWidget {
           ),
           Row(
             children: [
-              AutoSizeText(
-                currentWeather.temperature.round().toString(),
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 60,
+              Expanded(
+                flex: 3,
+                child: AutoSizeText(
+                  currentWeather.temperature.round().toString(),
+                  minFontSize: 1,
+                  maxLines: 1,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 60,
+                  ),
                 ),
               ),
-              Align(
-                alignment: Alignment.topCenter,
-                child: AutoSizeText(
-                  " °C",
-                  style: TextStyle(
-                    color: const Color(0xFFF7C412),
-                    fontSize: 30,
+              Expanded(
+                flex: 2,
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: AutoSizeText(
+                    " °C",
+                    minFontSize: 1,
+                    maxLines: 1,
+                    style: TextStyle(
+                      color: const Color(0xFFF7C412),
+                      fontSize: 30,
+                    ),
                   ),
                 ),
               ),

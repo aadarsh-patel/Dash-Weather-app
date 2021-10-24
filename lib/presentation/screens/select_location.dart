@@ -15,6 +15,17 @@ class SelectLocation extends StatefulWidget {
 
 class _SelectLocationState extends State<SelectLocation> {
   @override
+  void initState() {
+    super.initState();
+    context.read<WeatherDataCubit>().getLocation();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
 

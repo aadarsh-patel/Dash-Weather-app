@@ -16,7 +16,7 @@ class Registration extends StatefulWidget {
 class _RegistrationState extends State<Registration> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
-  bool _signUpSelected = true;
+  bool _signUpSelected = false;
 
   InputDecoration _getInputDecoration(String labelText) {
     return InputDecoration(
